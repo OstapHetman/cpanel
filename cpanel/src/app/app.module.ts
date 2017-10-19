@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +10,6 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AngularFireDatabaseModule, AngularFireDatabase } from "angularfire2/database-deprecated";
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-
 
 // Componen Imports
 import { AppComponent } from './app.component';
@@ -64,7 +64,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule
   ],
   providers: [
     AngularFireAuth,
