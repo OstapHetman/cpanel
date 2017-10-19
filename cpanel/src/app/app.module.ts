@@ -5,7 +5,8 @@ import { RouterModule, Routes } from '@angular/router'
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+
+import { AngularFireDatabaseModule, AngularFireDatabase } from "angularfire2/database-deprecated";
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 
