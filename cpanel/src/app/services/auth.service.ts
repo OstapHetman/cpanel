@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
 
+  // Login user
   constructor(public afAuth: AngularFireAuth) { }
   login(email: string, password: string) {
     return new Promise ((resolve, reject) => {
@@ -13,5 +14,15 @@ export class AuthService {
       .then(userData => resolve(userData),
       err => reject(err));
     });
+  }
+
+  // Check User status
+  getAuth() {
+    return this.afAuth.authState.map(auth => auth);
+  }
+
+  // Logout iser
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }
