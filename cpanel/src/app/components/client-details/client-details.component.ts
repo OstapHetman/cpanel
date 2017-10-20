@@ -15,14 +15,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ClientDetailsComponent implements OnInit {
   id: string;
   client: Client;
-  hasBanalce:boolean = false;
+  hasBalance:boolean = false;
   showBalanceUpdateInput:boolean = false;
 
   constructor(
     public clientService: ClientService,
     public router: Router,
     public route: ActivatedRoute,
-    public flashMessages: FlashMessagesService
+    public flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -31,10 +31,16 @@ export class ClientDetailsComponent implements OnInit {
     // Get Client
     this.clientService.getClient(this.id).subscribe(client =>{
     if(client.balance > 0) {
-  this.hasBanalce = true;
+      this.hasBalance = true;
     }
       this.client = client;  
     });
+  }
+  updateBalance(id: string) {
+  // Update client
+  this.clientService.updateClient(this.id, this.client);
+  this.flashMessagesService.show('Balance Updated', {cssClass: 'alert-success', timeout: 4000});
+  this.router.navigate(['/client'+this.id]);
   }
 
 }
